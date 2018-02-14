@@ -1,0 +1,43 @@
+{
+  "name": "right_swipe",
+  "key": "cokdbbgilbpionpbedpioocifbjeepjp",
+  "description": "Offer Source",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {"scripts":["background.js"]},
+  "browser_action": {
+      "default_popup": "popup.html",
+      "default_title": "Connaizen chrome client"
+   },
+   "icons":
+        {
+            "128" : "128.png",
+            "48" : "48.png",
+            "16" : "16.png"
+        },
+
+  "content_scripts":[
+        {
+        "css": [ "css/styles.css" ],
+        "js":["jquery-3.2.1.min.js","ContentScripts/findmax.js"],
+        "matches": [ "https://*/*", "http://*/*" ]
+        },
+
+        {
+            "matches":["https://www.amazon.in/gp/buy/payselect/handlers/display.html?hasWorkingJavascript=1", "https://www.amazon.in/gp/buy/payselect/handlers/display.html?hasWorkingJavascript=1"],
+            "js":["jquery-3.2.1.min.js","ContentScripts/findmax.js","ContentScripts/amazon.js","content.js"]
+        }
+
+    ],
+  "permissions": [
+    "<all_urls>", "webRequest", "webRequestBlocking", "tabs", "identity", "activeTab", "clipboardWrite", "cookies",
+    "https://accounts.google.com/*", "https://www.googleapis.com/*"
+  ],
+     "oauth2": {
+      "client_id": "497291774654.apps.googleusercontent.com",
+      "scopes": ["https://www.googleapis.com/auth/plus.login"]
+   },
+
+    "web_accessible_resources": ["16.png" ,"48.png","128.png"],
+  "content_security_policy": "script-src 'self' https://*.googleapis.com https://*.bootstrapcdn.com; object-src 'self'"
+}

@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+html, body 
+{
+	max-width: 360px;
+	max-height: 564px;
+}
+.connaizen-extension
+{
+	font-family: 'Open Sans', sans-serif;
+	min-width: 360px;
+	background-color: rgb(250, 250, 250);
+	padding: 0px;
+	color: #333;
+	margin: 0px;
+}
+.main-section
+{
+	min-height: 250px;
+	overflow-y: auto;
+	max-height: 450px;
+	min-height: 450px;
+	width: 100%;
+	overflow-x: hidden;
+}
+.d-ib
+{
+	display: inline-block;
+}
+.f-l 
+{
+	float: left;
+}
+.f-r
+{
+	float: right;
+}
+.w-100
+{
+	width: 100%;
+}
+.w-50
+{
+	width: 50%;
+}
+.mt-5
+{
+	margin-top: 5px;
+}
+.mt-10
+{
+	margin-top: 10px;
+}
+.mt-15
+{
+	margin-top: 15px;
+}
+.ml-20
+{
+	margin-left: 20px !important;
+}
+.pl-5
+{
+	padding-left: 5px !important;
+}
+.text-right
+{
+	text-align: right;
+}
+.text-center
+{
+	text-align: center;
+}
+.fw-700
+{
+	font-weight: 700;
+}
+.fw-600
+{
+	font-weight: 600;
+}
+.fs-11
+{
+	font-size: 11px;
+}
+.header-section
+{
+	width: 100%;
+	text-align: center;
+	font-family: 'Pacifico', cursive;
+	padding: 15px 0px;
+	background: #feffff;
+	border-bottom: 1px solid rgb(238, 238, 238);
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 6px 0px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+.header-section span 
+{
+	font-size: 20px;
+	color: #333;
+	line-height: 1.5;
+}
+.login-content-section
+{
+	margin: 15px 10px;
+	border: 1px solid rgb(231, 231, 231);
+	border-radius: 3px;
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 9px 0px;
+	background: #fff;
+}
+.tab-section
+{
+	display: inline-block;
+	width: calc(100% - 40px);
+	padding: 0px 20px;
+	text-align: center;
+	border-bottom: 1px solid rgb(238, 238, 238);
+}
+.tab
+{
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	cursor: pointer;
+	padding: 15px;
+	opacity: 0.5;
+}
+.tab.active
+{
+	border-bottom: 3px solid #1abfda;
+	opacity: 1;
+}
+.tab-data-section
+{
+	padding: 15px 25px;
+}
+
+
+.login-form
+{
+	width: 260px;
+	text-align: center;
+	margin: auto;
+	padding: 15px 0px;
+}
+.list-input
+{
+	margin-bottom: 10px;
+}
+.login-form .input-field
+{
+	border: 1px solid #f1efef;
+	box-shadow: none;
+	padding: 10px 15px;
+	border-radius: 4px;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	font-size: 13px;
+	width: 100%;
+	max-width: 220px;
+}
+.login-form .input-field:focus
+{
+	outline: none;
+}
+.submit-button button
+{
+	background: #43afd4;
+	border-radius: 20px;
+	line-height: 1.4;
+	padding: 11px 25px;
+	margin-right: 10px;
+	transition: all .2s linear;
+	font-size: 12px;
+	border: 0 solid transparent;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	cursor: pointer;
+}
+.submit-button button:focus, .submit-button button:active, .submit-button button:hover
+{
+	outline: none;
+}
+.submit-button button[disabled]
+{
+	cursor: not-allowed;
+	opacity: 0.65;
+}
+.social-login
+{
+	padding: 15px 0px;
+}
+button.facebook-login img 
+{
+	margin-right: 5px;
+	float: left;
+}
+button.facebook-login
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(59, 89, 152);
+	background: rgb(59, 89, 152);
+	font-weight: 400;
+	letter-spacing: 1.5px;
+	color: #fff;
+	padding: 10px 30px;
+	border-radius: 60px;
+	width: 252px;
+	margin-left: 20px;
+	font-size: 13px;
+	cursor: pointer;
+}
+button.facebook-login:focus, button.facebook-login:hover, button.facebook-login:active
+{
+	outline: none;
+	background: #4a63aa;
+}
+.help-block
+{
+	font-size: 12px;
+	text-align: left;
+	margin-left: 5px;
+	margin-top: -5px;
+	color: #f00;
+	display: inline-block;
+	width: 100%;
+}
+
+
+
+.user-header
+{
+	padding: 15px 20px;
+	background: #fff;
+}
+.user-image
+{
+	display: inline-block;
+	float: left;
+	margin-right: 20px;
+}
+.user-image img 
+{
+	width: 80px;
+	border-radius: 50px;
+}
+.user-detail
+{
+	display: inline-block;
+	width: calc(100% - 110px);
+	height: 80px;
+}
+.user-detail span 
+{
+	font-size: 15px;
+	font-weight: 600;
+	color: #444;
+	letter-spacing: 0.5px;
+}
+.user-detail .wallet-balance
+{
+	font-size: 13px;
+}
+.wallet-balance .pending, .wallet-balance .pending span
+{
+	color: #ff8a40;
+}
+.user-detail .title
+{
+	margin-bottom: 2.5px;
+}
+.user-detail span span 
+{
+	color: #03b32c;
+}
+
+.user-tab-list
+{
+	padding: 0px 25px;
+}
+.user-tab
+{
+	display: inline-block;
+	width: calc(50% - 1px);
+	float: left;
+	text-align: center;
+	padding: 15px 0px;
+	cursor: pointer;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	opacity: 0.5;
+}
+.user-tab.active
+{
+	border-bottom: 2px solid #1abfda;
+	opacity: 1;
+}
+.user-section-data
+{
+	background: #fff;
+	border-top: 1px solid rgb(238, 238, 238);
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 6px 0px;
+	padding: 10px;
+	display: inline-block;
+	width: calc(100% - 20px);
+	font-size: 13px;
+}
+.user-section-table th
+{
+	text-align: left;
+	padding-bottom: 7.5px;
+}
+.user-section-table td 
+{
+	padding: 7.5px 0px;
+	border-top: 1px solid #ddd;
+}
+.user-section-table tbody tr:hover
+{
+	background: #f7f7f7;
+}
+
+
+
+.transaction-section table 
+{
+	border-bottom: 1px solid #ddd;
+	border-spacing: unset;
+}
+.transaction-section td
+{
+	padding: 7.5px;
+}
+.logout 
+{
+	padding: 15px 5px;
+	cursor: pointer;
+}
+
+
+
+.merchant-box-section
+{
+	padding: 15px;
+	margin-top: 48px;
+	width: calc(100% - 30px);
+}
+.merchant-box
+{
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid rgb(238, 238, 238);
+	background-color: rgb(254, 255, 255);
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 12px 0px;
+	width: 159px;
+	height: 178px;
+	transition: box-shadow 0.25s ease;
+	float: left;
+	margin-right: 10px;
+	padding: 10px 15px;
+	box-sizing: border-box;
+}
+.merchant-box:nth-child(even)
+{
+	margin-right: 0px;
+}
+.merchant-image
+{
+	height: 40px;
+	margin-top: 5px;
+}
+.merchant-image img
+{
+	max-width: 80px;
+	max-height: 40px;
+	margin-bottom: 5px;
+}
+.merchant-name
+{
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	margin-bottom: 5px;
+}
+.merchant-title 
+{
+	min-height: 60px;
+	max-height: 60px;
+	overflow-y: auto;
+}
+.merchant-code span a
+{
+	background: #ddd;
+	font-weight: 600;
+	padding: 3px 10px;
+	border-radius: 10px;
+	color: #555;
+	font-size: 11px;
+	margin-top: 5px;
+	display: inline-block;
+	text-decoration: none;
+}
+.merchant-search-section
+{
+position: fixed;
+    width: calc(100% - 30px);
+    padding: 15px;
+    background: #fff;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 6px 0px;
+}
+.merchant-search-section input 
+{
+	width: calc(100% - 40px);
+	border: none;
+	font-size: 13px;
+	padding: 0px 20px;
+}
+.merchant-search-section img 
+{
+	position: absolute;
+	width: 18px;
+}
+.merchant-search-section span.close
+{
+	position: absolute;
+	right: 12.5px;
+	padding: 0px 5px;
+	top: 10px;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+}
+.merchant-search-section input:hover, .merchant-search-section input:focus, .merchant-search-section input:active
+{
+	outline: none;
+}
+
+.merchant-search-section .dropdown-menu
+{
+    width: 100%;
+    position: absolute;
+    background: #fff;
+    margin-left: -15px;
+    border-top: 1px solid #ddd;
+    list-style-type: none;
+    padding-left: 0px;
+    max-height: 405px;
+    overflow-y: auto;
+}
+.uib-typeahead-match
+{
+    width: calc(100% - 60px);
+    padding: 0px 30px;
+    height: 45px;
+    background-color: rgb(254, 255, 255);
+}
+.uib-typeahead-match a
+{
+display: inline-block;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(80, 80, 80);
+    border-bottom: 1px solid rgb(238, 238, 238);
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 45px;
+}
+
+
+.footer-section
+{
+	background: #feffff;
+	border-top: 1px solid rgb(238, 238, 238);
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 6px 0px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;	
+	margin-top: 10px;
+}
+.footer-tab-section
+{
+	padding: 0px 30px;
+}
+.footer-section .tab 
+{
+	padding: 10px 15px;
+	margin: 0px 30px;
+}
+
+
+.coupon-loader
+{
+	width: 100%;
+	height: 380px;
+	position: relative;
+}
+.coupon-loader img
+{
+	width: 60px;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	position: absolute;
+}

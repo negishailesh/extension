@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Connaizen</title>
+  <link href="extension.css" rel="stylesheet">
+</head>
+<body class="connaizen-extension" ng-app="everydime" ng-controller="commonController as vm" ng-init="vm.initLoginSuccess()">
+  <div class="col-md-12">
+    <div class="header-section">
+     <div class="d-ib">
+       <span>EveryDime</span>
+     </div>
+     <input type="button" value="click" ng-click="vm.click()">
+   </div>
+   
+   <!-- <button class="Apply-Best-Coupon" style="font-weight:600; letter-spacing:.4px" ng-click="vm.submit()">Apply</button> -->
+
+   
+   <div class="main-section" ng-init="vm.navigation = 'home'">
+
+
+    <div class="w-100 d-ib" ng-if="vm.navigation == 'home'">
+      <div class="merchant-search-section" ng-init="vm.merchantList()">
+        <img src="search.svg"><input type="autocomplete" name="merchant-search" placeholder="Search Merchant" ng-model="vm.search_merchant" uib-typeahead="merchant for merchant in vm.merchant_list | filter:$viewValue:vm.startsWith | limitTo:500" typeahead-on-select="vm.onSelectMerchant($item, $model, $label)"" typeahead-min-length = "1"><span class="close" ng-if="vm.search_merchant.length > 0" ng-click="vm.initDefaultCoupons(); vm.search_merchant=''">x</span>
+
+      </div>
+      <div class="merchant-box-section d-ib">
+        <div class="loader coupon-loader" ng-if="vm.coupons_load == false">
+           <img src="loader.gif" alt="loader">
+        </div>
+        <div class="merchant-box" ng-repeat="offer in vm.coupons" ng-if="vm.coupons_load == true">
+          <div class="merchant-image">
+            <img ng-src="{{offer.logo_url}}">
+          </div>
+          <div class="merchant-name">
+           {{offer.merchant}}
+         </div>
+
+         <div class="merchant-title">
+           {{offer.title}}
+         </div>
+
+         <div class="merchant-code">
+           <span ng-click="vm.copyCoupon(offer)" ng-if="vm.merchant_name_check != offer.merchant" class="d-ib"><a ng-href="{{offer.url}}" target="_blank">{{offer.code}}</a></span>
+           <span ng-click="vm.copyCoupon(offer)" ng-if="vm.merchant_name_check == offer.merchant" class="d-ib"><a ng-href="javascript:void(0)">{{offer.code}}</a></span>
+           <span ng-if="vm.copy_text.length && vm.offer_code_check == offer.code" class="f-r mt-5 fs-11">{{vm.copy_text}}</span>
+         </div>
+       </div>
+     </div>
+
+   </div>
+
+
+   <div class="w-100 d-ib" ng-if="vm.navigation == 'profile'">
+    <div class="login-content-section" ng-if="vm.__session == undefined">
+      <div class="login-section">
+        <div class="tab-section" ng-init="vm.tab = 'login'">
+          <div class="w-50 f-l d-ib">
+            <div class="tab" ng-click="vm.tab = 'login'" ng-class="{'active':vm.tab === 'login'}">Login</div>
+          </div>
+          <div class="w-50 d-ib">
+            <div class="tab" ng-click="vm.tab = 'signup'" ng-class="{'active':vm.tab === 'signup'}">Sign up</div>
+          </div>
+        </div>
+
+        <div class="tab-data-section">
+          <div ng-if="vm.tab == 'login'">
+
+           <div class="w-100 d-ib text-center">
+             <span class="fw-600">-or-</span>
+           </div>
+           <div class="help-block ml-20">{{vm.errorMsg}}</div>
+           <form ng-submit="vm.loginSubmit(vm.login)" name="loginForm" class="login-form">
+             <div class="list-input">
+              <input  class="input-field" type="email" validate-email name="email" ng-model="vm.login.email" placeholder="Email id" ng-required="true">
+              <span class="help-block" ng-if="loginForm.email.$dirty && !loginForm.email.$valid">
+                Invalid email id
+              </span>
+            </div>
+            <div class="list-input">
+              <input  class="input-field" type="password" name="password" ng-model="vm.login.password" placeholder="Password" ng-required="true">
+            </div>
+            <div class="list-input submit-button">
+             <button type="submit" ng-disabled="!loginForm.$valid">Submit</button>
+           </div>
+         </form>
+       </div>
+
+       <div ng-if="vm.tab == 'signup'">
+         bas
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+ <div ng-if="vm.__session != undefined" ng-init="vm.initLoginSuccess(); vm.profile()" class="after-login-content-section d-ib w-100">
+
+  <div class="user-header">
+    <div class="user-image">
+      <img src="user.png" alt="user image">
+    </div>
+    <div class="user-detail">
+      <span class="d-ib w-100 mt-15 title">Ayush Singh</span>
+      <span class="d-ib w-100 wallet-balance"> 
+        Balance: <span class="success"><span ng-bind-html="vm.currency | html"></span>{{vm.wallet.confirmed}}</span> |
+        Pending: <span class="pending"><span ng-bind-html="vm.currency | html"></span>{{vm.wallet.pending}}</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="user-tab-section w-100 d-ib f-l">
+    <div class="user-tab-list" ng-init="selectedTab = 'transaction'">
+     <div class="user-tab" ng-class="{'active':selectedTab === 'transaction'}" ng-click="selectedTab = 'transaction'">Transaction</div>
+     <div class="user-tab" ng-class="{'active':selectedTab === 'account'}" ng-click="selectedTab = 'account'">Account</div>
+   </div>
+ </div>
+
+ <div class="user-section-data">
+
+  <div class="d-ib w-100 transaction-section" ng-if="selectedTab == 'transaction'">
+   <table class="w-100 user-section-table">
+     <thead>
+       <tr>
+         <th>Merchant</th>
+         <th>Amt / Cashback</th>
+         <th>Date</th>
+         <th>Status</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr ng-repeat="transaction in vm.transactions">
+         <td class="pl-5">{{transaction.merchant}}</td>
+         <td><span ng-bind-html="vm.currency | html"></span>{{transaction.amount}} / <span ng-bind-html="vm.currency | html"></span>{{transaction.cashback}}</td>
+         <td>{{transaction.date | date:'shortDate'}}</td>
+         <td><span class="status">{{transaction.status}}</span></td>
+       </tr>
+     </tbody>
+   </table>
+   <div ng-if="!vm.transactions.length" class="d-ib w-100 mt-10">No result found.</div>
+ </div>
+
+ <div class="d-ib w-100 transaction-section" ng-if="selectedTab == 'account'">
+  <table class="w-100">
+    <tbody>
+      <tr>
+        <td class="fw-700">Name</td>
+        <td class="text-right">Ayush Singh</td>
+      </tr>
+      <tr>
+        <td class="fw-700">Email Id</td>
+        <td class="text-right">{{vm.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="w-100 d-ib">
+   <div class="logout fw-700" ng-click="vm.logoutSubmit()">Logout</div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<div class="footer-section">
+ <div class="footer-tab-section">
+  <div class="w-50 f-l d-ib">
+    <div class="tab text-center" ng-click="vm.navigation = 'home'" ng-click="vm.initDefaultCoupons()" ng-class="{'active':vm.navigation === 'home'}">
+      <img src="home.svg" alt="Profile">
+    </div>
+  </div>
+  <div class="w-50 d-ib">
+    <div class="tab text-center" ng-click="vm.navigation = 'profile'; vm.profile()" ng-class="{'active':vm.navigation === 'profile'}">
+      <img src="account.svg" alt="Profile">
+    </div>
+  </div>
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+</body>
+
+
+<script src="jquery.min.js" type="text/javascript"></script>
+<script src="angular.min.js" type="text/javascript"></script>
+<script src="ui-bootstrap-tpls-2.1.3.min.js" type="text/javascript"></script>
+
+<script src="run.js"></script>
+
+</html>
